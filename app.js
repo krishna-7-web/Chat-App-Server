@@ -10,7 +10,6 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import { v4 as uuid } from "uuid";
 
-import { ONLINE_USERS } from "../client/src/constants/events.js";
 import { corsOptions } from "./constants/config.js";
 import {
   CHAT_JOINED,
@@ -19,6 +18,7 @@ import {
   NEW_MESSAGE_ALERT,
   START_TYPING,
   STOP_TYPING,
+  ONLINE_USERS
 } from "./constants/events.js";
 import { getSockets } from "./lib/helper.js";
 import { socketAuthnticator } from "./middlewares/auth.js";
