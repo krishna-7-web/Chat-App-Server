@@ -92,11 +92,13 @@ const searchUser = TryCatch(async (req, res) => {
   });
 
   // Modifing the response
-  const users = allUsersExceptMeAndFriends.map(({ _id, name, avatar }) => ({
-    _id,
-    name,
-    avatar: avatar.url,
-  }));
+  const users = allUsersExceptMeAndFriends
+    .filter((allUser) => allUser._id.toString() !== req.user)
+    .map(({ _id, name, avatar }) => ({
+      _id,
+      name,
+      avatar: avatar.url,
+    }));
 
   return res.status(200).json({
     status: true,
